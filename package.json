@@ -1,0 +1,26 @@
+{
+  "name": "codante-static-0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node exp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codante-static-0/codante-static-0.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codante-static-0/codante-static-0.github.io/issues"
+  },
+  "homepage": "https://github.com/codante-static-0/codante-static-0.github.io#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "map-stream": "^0.0.7",
+    "mv": "^2.1.1",
+    "path": "^0.12.7",
+    "vinyl-fs": "^3.0.2"
+  }
+}
