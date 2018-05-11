@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-node exp.js
-git add . && git commit -m "update" && git push

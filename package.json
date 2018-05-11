@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "domain": "static.0.codante.org",
+  "source_dir": "source",
   "scripts": {
-    "build": "node exp.js"
+    "build": "node exp.js",
+    "commit": "git add . && git commit -m \"update\" && git push"
   },
   "repository": {
     "type": "git",
@@ -17,10 +20,15 @@
   },
   "homepage": "https://github.com/codante-static-0/codante-static-0.github.io#readme",
   "dependencies": {
+    "collect.js": "^4.0.16",
+    "colors": "^1.2.5",
     "fs": "^0.0.1-security",
+    "jsonfile": "^4.0.0",
     "map-stream": "^0.0.7",
-    "mv": "^2.1.1",
+    "move-file": "^1.0.0",
     "path": "^0.12.7",
+    "sha1": "^1.1.1",
+    "uuid": "^3.2.1",
     "vinyl-fs": "^3.0.2"
   }
 }
