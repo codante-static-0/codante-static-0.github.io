@@ -5,6 +5,31 @@
     <title>Title</title>
 </head>
 <body>
-Sources
+<script>
+    var getJSON = (function (XHR) {
+        return function (url, done, fail) {
+            var httpRequest = new XHR();
+            if (!httpRequest) {
+                throw new Error('Giving up :( Cannot create an XMLHTTP instance');
+            }
+            httpRequest.onreadystatechange = function alertContents() {
+                if (httpRequest.readyState === XHR.DONE) {
+                    if (httpRequest.status === 200) {
+                        done(JSON.parse(httpRequest.responseText));
+                    } else {
+                        fail();
+                    }
+                }
+            };
+            httpRequest.open('GET', url);
+            httpRequest.send();
+        }
+    })(window.XMLHttpRequest);
+</script>
+<script>
+    getJSON('e.json', function (json) {
+        console.log(json);
+    });
+</script>
 </body>
 </html>
