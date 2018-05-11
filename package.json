@@ -7,7 +7,7 @@
   "source_dir": "source",
   "scripts": {
     "build": "node exp.js",
-    "commit": "git add . && git commit -m \"update\" && git push"
+    "deploy": "git add . && git commit -m \"update\" && git push"
   },
   "repository": {
     "type": "git",
