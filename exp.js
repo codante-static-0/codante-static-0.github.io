@@ -6,11 +6,9 @@ const mv = require('move-file');
 const path = require('path');
 const fs = require('fs');
 const jsonfile = require('jsonfile');
-const uuid = require('uuid/v5'); // sha1
 const sha1 = require('sha1');
 const collect = require('collect.js');
-
-require('colors');
+const colors = require('colors');
 
 let db = {};
 try {
@@ -20,13 +18,12 @@ try {
 }
 
 let config = jsonfile.readFileSync('./package.json');
-const namespace = uuid(config.domain, uuid.DNS);
 
 vfs.src(['./source/**/*.{jpg,png,gif}'])
     .pipe(map((file, cb) => {
         let fileNS = path.relative(path.resolve(config.source_dir), path.dirname(file.path));
-        let UUID = uuid(sha1(file.contents), namespace);
-        let fileName = `${UUID}${path.extname(file.path).toLowerCase()}`;
+        let sha1Name = sha1(file.contents);
+        let fileName = `${sha1Name}${path.extname(file.path).toLowerCase()}`;
         let filePath = `${fileName.slice(0, 1)}/${fileName.slice(1, 2)}/${fileName}`;
         let from = path.resolve(file.path);
         let to = path.resolve(`./${filePath}`);
