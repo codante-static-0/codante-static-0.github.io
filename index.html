@@ -19,6 +19,8 @@
         }
 
         .ns {
+            padding: .2em .5em;
+            display: inline-block;
             font-size: 1.2em;
             cursor: pointer;
         }
@@ -47,6 +49,26 @@
             width: 300px;
             margin: 10px;
             background: #b9d1df;
+        }
+
+        .tip {
+            padding: .5em;
+            color: #FFFFFF;
+            background-color: rgba(0, 0, 0, .5);
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 10px;
+            -webkit-transition: opacity 300ms;
+            -moz-transition: opacity 300ms;
+            -ms-transition: opacity 300ms;
+            -o-transition: opacity 300ms;
+            transition: opacity 300ms;
+            opacity: 0;
+        }
+
+        .tip.show {
+            opacity: 1;
         }
     </style>
     <style>
@@ -177,6 +199,21 @@
 </head>
 <body>
 <script>
+    function Tip(message) {
+        var tip = $('<div class="tip">' + (message || '') + '</div>').appendTo($(document.body));
+        setTimeout(function () {
+            tip.addClass('show')
+            setTimeout(function () {
+                tip.removeClass('show');
+                setTimeout(function () {
+                    tip.remove();
+                    tip = null;
+                }, 300)
+            }, 2300)
+        }, 0);
+    }
+</script>
+<script>
 
     var domain = window.location.href.split('/');
     domain = domain[0] + '//' + domain[2];
@@ -193,8 +230,10 @@
             var successful = document.execCommand('copy');
             var msg = successful ? 'successful' : 'unsuccessful';
             console.log('Copying text command was ' + msg);
+            Tip('Copying text command was ' + msg)
         } catch (err) {
             console.log('Oops, unable to copy');
+            Tip('Oops, unable to copy')
         }
 
         textArea.remove();
