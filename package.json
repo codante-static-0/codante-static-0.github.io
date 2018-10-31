@@ -7,6 +7,7 @@
   "source_dir": "source",
   "scripts": {
     "build": "node exp.js",
+    "clear": "node clear.js",
     "test": "http-server ./ -p 10980",
     "deploy": "git add . && git commit -m \"update\" && git push"
   },
