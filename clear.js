@@ -22,7 +22,7 @@ if (files.length) {
     vfs.src(['./**/*.{jpg,png,gif}', '!./node_modules/**/*', '!./source/**/*'])
         .pipe(map((file, cb) => {
             if (0 > files.indexOf(file.basename)) {
-                // 不村在
+                // 不存在
                 try {
                     fs.unlinkSync(file.path);
                     console.log('[File deleted]'.bold.red, file.path);
