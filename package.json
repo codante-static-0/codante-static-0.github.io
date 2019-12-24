@@ -25,6 +25,7 @@
     "collect.js": "^4.0.16",
     "colors": "^1.2.5",
     "fs": "^0.0.1-security",
+    "http-server": "^0.12.0",
     "jsonfile": "^4.0.0",
     "map-stream": "^0.0.7",
     "move-file": "^1.0.0",
