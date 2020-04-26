@@ -6,6 +6,7 @@
   "domain": "static.0.codante.org",
   "source_dir": "source",
   "scripts": {
+    "init": "yarn install",
     "build": "node exp.js",
     "clear": "node clear.js",
     "test": "http-server ./ -p 10980",
